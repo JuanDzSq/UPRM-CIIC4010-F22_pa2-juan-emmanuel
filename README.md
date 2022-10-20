@@ -1,5 +1,8 @@
 # pa2-juan-emmanuel
 pa2-juan-emmanuel created by GitHub Classroom
 
-Nombres: Emmanuel E. Guadalupe Rodriguez
-Emails: emmanuel.guadalupe1@upr.edu
+Nombre: Emmanuel E. Guadalupe Rodriguez
+Email: emmanuel.guadalupe1@upr.edu
+
+Nombre: Juan E. Diaz Diaz
+Email: juan.diaz33@upr.edu
