@@ -1,7 +1,8 @@
 #include "ofApp.h"
 
 //--------------------------------------------------------------
-void ofApp::setup() {
+void ofApp::setup()
+{
     ofSetEscapeQuitsApp(false);
     ofSetFrameRate(30);
     ofSetWindowTitle("PA2");
@@ -19,7 +20,8 @@ void ofApp::setup() {
 }
 
 //--------------------------------------------------------------
-void ofApp::initAreas() {
+void ofApp::initAreas()
+{
     /**
      * @brief
      * each area is 672 pixels wide and 640 pixels high,
@@ -56,11 +58,14 @@ void ofApp::initAreas() {
 }
 
 //--------------------------------------------------------------
-void ofApp::update() {
+void ofApp::update()
+{
     currentState->update();
-    if (currentState->hasFinished()) {
+    if (currentState->hasFinished())
+    {
         currentState->toggleMusic();
-        if (currentState->getNextState() == "Title") {
+        if (currentState->getNextState() == "Title")
+        {
             endGameState->setWin(false);
             area1->resetEnemies();
             area2->resetEnemies();
@@ -69,89 +74,117 @@ void ofApp::update() {
             battleState->setStage(currentArea->getStage());
             overworldState->loadArea(currentArea);
             currentState = titleState;
-        } else if (currentState->getNextState() == "Overworld") {
+        }
+        else if (currentState->getNextState() == "Overworld")
+        {
             currentState = overworldState;
-        } else if (currentState->getNextState() == "Battle") {
+        }
+        else if (currentState->getNextState() == "Battle")
+        {
             battleState->startBattle(overworldState->getEnemy());
             currentState = battleState;
-        } else if (currentState->getNextState() == "Win") {
+        }
+        else if (currentState->getNextState() == "Win")
+        {
             overworldState->getEnemy()->kill();
-            if (currentArea->getRemainingEnemies() == 0) {
-                if (currentArea->getNextArea() == NULL) {
+            if (currentArea->getRemainingEnemies() == 0)
+            {
+                if (currentArea->getNextArea() == NULL)
+                {
                     endGameState->setWin(true);
                     currentState = endGameState;
-                } else {
+                }
+                else
+                {
                     currentArea = currentArea->getNextArea();
                     overworldState->loadArea(currentArea);
                     battleState->setStage(currentArea->getStage());
                     currentState = winState;
                 }
-            } else {
+            }
+            else
+            {
                 currentState = winState;
             }
-        } else if (currentState->getNextState() == "End")
+        }
+        else if (currentState->getNextState() == "End")
+        {
             currentState = endGameState;
+            player->reset();
+        }
         currentState->toggleMusic();
         currentState->reset();
     }
 }
 
 //--------------------------------------------------------------
-void ofApp::draw() {
+void ofApp::draw()
+{
     currentState->draw();
 }
 
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key) {
+void ofApp::keyPressed(int key)
+{
     currentState->keyPressed(key);
 }
 
 //--------------------------------------------------------------
-void ofApp::keyReleased(int key) {
+void ofApp::keyReleased(int key)
+{
     currentState->keyReleased(key);
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y) {
+void ofApp::mouseMoved(int x, int y)
+{
     currentState->mouseMoved(x, y);
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button) {
+void ofApp::mouseDragged(int x, int y, int button)
+{
     currentState->mouseDragged(x, y, button);
 }
 
 //--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button) {
+void ofApp::mousePressed(int x, int y, int button)
+{
     currentState->mousePressed(x, y, button);
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button) {
+void ofApp::mouseReleased(int x, int y, int button)
+{
     currentState->mouseReleased(x, y, button);
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y) {
+void ofApp::mouseEntered(int x, int y)
+{
     currentState->mouseEntered(x, y);
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y) {
+void ofApp::mouseExited(int x, int y)
+{
     currentState->mouseExited(x, y);
 }
 
 //--------------------------------------------------------------
-void ofApp::windowResized(int w, int h) {
+void ofApp::windowResized(int w, int h)
+{
     currentState->windowResized(w, h);
 }
 
 //--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg) {
+void ofApp::gotMessage(ofMessage msg)
+{
     currentState->gotMessage(msg);
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo) {
+void ofApp::dragEvent(ofDragInfo dragInfo)
+{
     currentState->dragEvent(dragInfo);
 }

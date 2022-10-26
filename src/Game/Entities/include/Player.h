@@ -5,14 +5,17 @@
 
 #define INIT_X 100
 #define INIT_Y 100
+#define INIT_BATTLE_X 64
+#define INIT_BATTLE_Y 164
 #define CENTER_X 288
 #define CENTER_Y 208
 
 #define OXDIMENSION 2688
 #define OYDIMENSION 2560
 
-class Player : public Entity {
-   private:
+class Player : public Entity
+{
+private:
     Direction direction = Direction::up;
     int speed = 8;
     bool walking = false;
@@ -23,7 +26,7 @@ class Player : public Entity {
     Animation *fighting;
     vector<char> pressedKeys;
 
-   public:
+public:
     Player(int health, int baseDamage);
     ~Player();
     void inOverworldUpdate();
