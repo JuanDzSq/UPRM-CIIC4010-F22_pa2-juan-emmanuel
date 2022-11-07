@@ -45,6 +45,11 @@ void OverworldState::draw() {
             area->getEnemies().at(i)->inOverworldDraw();
         }
     }
+
+    //HUD Implementation
+    ofSetColor(ofColor::purple);
+    ofDrawBitmapString(getArea()->getName().insert(4, " ") + "\nPlayer Health: " + ofToString(getPlayer()->getHealth()) + "\nRemaining Enemies: " + ofToString(getArea()->getRemainingEnemies()), 5, 10);
+    ofSetColor(ofColor::white);
 }
 
 void OverworldState::keyPressed(int key) {
