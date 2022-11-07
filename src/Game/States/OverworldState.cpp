@@ -54,6 +54,16 @@ void OverworldState::draw() {
 
 void OverworldState::keyPressed(int key) {
     player->keyPressed(key);
+
+    // Debug key reset health implementation
+    if(key == 'h' || key == 'H'){
+        player->setHealth(100);
+    }
+
+    //Debug key reset enemies implementation
+    if(key == 'r' || key == 'R'){
+        getArea()->resetEnemies();
+    }
 }
 
 void OverworldState::keyReleased(int key) {

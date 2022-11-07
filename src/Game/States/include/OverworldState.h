@@ -22,6 +22,7 @@ class OverworldState : public State {
     Enemy *getEnemy() { return enemy; };
     void loadArea(Area *Area);
     Area *getArea() { return area; };
+    Area *resetEnemies();
     void update();
     void draw();
     void keyPressed(int key);

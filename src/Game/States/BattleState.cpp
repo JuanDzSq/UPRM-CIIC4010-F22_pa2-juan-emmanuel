@@ -200,6 +200,12 @@ void BattleState::drawOutcome() {
 
 void BattleState::keyPressed(int key) {
     if (canInteract) {
+
+        // Debug key reset currentPlayerHealth implementation
+        if(key == 'h' || key == 'H'){
+            currentPlayerHealth = 100;
+        }
+
         if (key == OF_KEY_LEFT || key == 'a') {
             buttonChange.play();
             if (currentButton == 1)
