@@ -48,7 +48,7 @@ void OverworldState::draw() {
 
     //HUD Implementation
     ofSetColor(ofColor::purple);
-    ofDrawBitmapString(getArea()->getName().insert(4, " ") + "\nPlayer Health: " + ofToString(getPlayer()->getHealth()) + "\nRemaining Enemies: " + ofToString(getArea()->getRemainingEnemies()), 5, 10);
+    ofDrawBitmapString(getArea()->getName().insert(4, " ") + "\nPlayer Health: " + ofToString(getPlayer()->getHealth()) + "\nRemaining Enemies: " + ofToString(getArea()->getRemainingEnemies()), 5, 15);
     ofSetColor(ofColor::white);
 }
 
