@@ -3,10 +3,13 @@
 #include "Animation.h"
 #include "Entity.h"
 
-class Enemy : public Entity {
-   private:
+class Enemy : public Entity
+{
+private:
     Direction direction;
     int speed = 8;
+    int xspeed = 16;
+    int yspeed = 8;
     bool walking = false;
     int renderX = 1000;
     int renderY = 1000;
@@ -21,7 +24,7 @@ class Enemy : public Entity {
     string entityName;
     ofImage sprite;
 
-   public:
+public:
     Enemy(string id, int health, int baseDamage, string entityName, int ox, int oy);
     ~Enemy();
     int getOX() { return ox; };
