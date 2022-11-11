@@ -41,4 +41,7 @@ class BattleState : public State {
         void setStage(ofImage stage) {this-> stage = stage;};
         void keyPressed(int key);
         void reset();
+        // string areaName;
+        // int counter = 0;
+        // Area *area;
 };

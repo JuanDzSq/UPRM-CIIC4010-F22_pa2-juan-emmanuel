@@ -28,6 +28,7 @@ class ofApp : public ofBaseApp{
 	private:
 		Area *area1;
 		Area *area2;
+		Area *area1_5;						//New Area
 		Area *currentArea;
 		State *currentState;
 		TitleState *titleState;

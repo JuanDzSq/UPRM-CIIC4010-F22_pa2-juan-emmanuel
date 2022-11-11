@@ -18,6 +18,24 @@ void OverworldState::loadArea(Area *area) {
 
 void OverworldState::update() {
     player->inOverworldUpdate();
+
+    // If player health drops to zero, change to lose state
+    if (player->getHealth() <= 0) {
+        setNextState("End");
+        setFinished(true);
+        return;
+    }
+
+    //Damage over Time
+    counter++;
+    if((area->getName() == "Area1_5") && (counter % 150 == 0)){
+        if(player->getHealth() - 3 <= 0){
+            player->setHealth(0);
+        }
+        else{
+            player->setHealth(player->getHealth() - 3);}
+    }
+
     for (unsigned int i = 0; i < area->getEnemies().size(); i++) {
         if (!area->getEnemies().at(i)->isDead()) {
             area->getEnemies().at(i)->inOverworldUpdate();

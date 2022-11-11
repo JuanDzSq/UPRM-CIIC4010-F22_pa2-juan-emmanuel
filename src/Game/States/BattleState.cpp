@@ -29,6 +29,16 @@ void BattleState::startBattle(Enemy *enemy) {
 }
 
 void BattleState::update() {
+    //This is an attempt at implementing DoT for when in battle state in Area1_5, it is incomplete
+    // counter++;
+    // if((area->getName() == "Area1_5") && (counter % 150 == 0)){
+    //     if(currentPlayerHealth - 3 <= 0){
+    //         currentPlayerHealth = 0;
+    //     }
+    //     else{
+    //         currentPlayerHealth -= 3;}
+    // }
+
     if (canInteract) {
         if (currentPlayerHealth <= 0) {
             setNextState("End");
@@ -199,13 +209,13 @@ void BattleState::drawOutcome() {
 }
 
 void BattleState::keyPressed(int key) {
+
+    // Debug key reset currentPlayerHealth implementation
+    if(key == 'h' || key == 'H'){
+        currentPlayerHealth = 100;
+    }
+
     if (canInteract) {
-
-        // Debug key reset currentPlayerHealth implementation
-        if(key == 'h' || key == 'H'){
-            currentPlayerHealth = 100;
-        }
-
         if (key == OF_KEY_LEFT || key == 'a') {
             buttonChange.play();
             if (currentButton == 1)
