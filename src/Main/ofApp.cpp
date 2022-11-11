@@ -91,19 +91,19 @@ void ofApp::update()
         else if (currentState->getNextState() == "Overworld")
         {
             currentState = overworldState;
-            if(flag == 1){
-                flag = 0;
-                return;
-            }
+            // if(flag == 1){                   //PauseState flag, so that it doesn't reset the current state
+            //     flag = 0;
+            //     return;
+            // }
         }
         else if (currentState->getNextState() == "Battle")
         {
             battleState->startBattle(overworldState->getEnemy());
             currentState = battleState;
-            if(flag == 1){
-                flag = 0;
-                return;
-            }
+            // if(flag == 1){                   //PauseState flag, so that it doesn't reset the current state
+            //     flag = 0;
+            //     return;
+            // }
         }
         else if (currentState->getNextState() == "Win")
         {
@@ -133,17 +133,17 @@ void ofApp::update()
             currentState = endGameState;
             player->reset();
         }
-        else if(currentState->getNextState() == "PauseState")
-        {
-            if(currentState == overworldState){
-                prevState = "OverWorld";
-            }
-            else{
-                prevState = "Battle";
-            }
-            currentState = pauseState;
-            flag = 1;
-        }
+        // else if(currentState->getNextState() == "PauseState")            //PauseState
+        // {
+        //     if(currentState == overworldState){
+        //         prevState = "OverWorld";
+        //     }
+        //     else{
+        //         prevState = "Battle";
+        //     }
+        //     currentState = pauseState;
+        //     flag = 1;
+        // }
         currentState->toggleMusic();
         currentState->reset();
     }
@@ -158,7 +158,7 @@ void ofApp::draw()
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
-    // if(key == OF_KEY_ESC && (currentState == overworldState || currentState == battleState)){
+    // if(key == OF_KEY_ESC && (currentState == overworldState || currentState == battleState)){        //Press esc key to set to Pause State
     //     currentState->setNextState("PauseState");
     //     currentState->setFinished(true);
     // }
