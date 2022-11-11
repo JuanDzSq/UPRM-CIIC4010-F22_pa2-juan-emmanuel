@@ -14,6 +14,7 @@ void ofApp::setup()
     battleState = new BattleState(player, currentArea);
     winState = new WinState();
     endGameState = new EndGameState();
+    pauseState = new PauseState();
 
     // Initial State
     currentState = titleState;
@@ -90,11 +91,19 @@ void ofApp::update()
         else if (currentState->getNextState() == "Overworld")
         {
             currentState = overworldState;
+            if(flag == 1){
+                flag = 0;
+                return;
+            }
         }
         else if (currentState->getNextState() == "Battle")
         {
             battleState->startBattle(overworldState->getEnemy());
             currentState = battleState;
+            if(flag == 1){
+                flag = 0;
+                return;
+            }
         }
         else if (currentState->getNextState() == "Win")
         {
@@ -124,6 +133,17 @@ void ofApp::update()
             currentState = endGameState;
             player->reset();
         }
+        else if(currentState->getNextState() == "PauseState")
+        {
+            if(currentState == overworldState){
+                prevState = "OverWorld";
+            }
+            else{
+                prevState = "Battle";
+            }
+            currentState = pauseState;
+            flag = 1;
+        }
         currentState->toggleMusic();
         currentState->reset();
     }
@@ -138,6 +158,10 @@ void ofApp::draw()
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
+    // if(key == OF_KEY_ESC && (currentState == overworldState || currentState == battleState)){
+    //     currentState->setNextState("PauseState");
+    //     currentState->setFinished(true);
+    // }
     currentState->keyPressed(key);
 }
 

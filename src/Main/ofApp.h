@@ -6,6 +6,7 @@
 #include "BattleState.h"
 #include "WinState.h"
 #include "EndGameState.h"
+#include "PauseState.h"
 
 class ofApp : public ofBaseApp{
 	public:
@@ -25,6 +26,10 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+
+		string prevState;
+		int flag = 0;
+		
 	private:
 		Area *area1;
 		Area *area2;
@@ -36,5 +41,6 @@ class ofApp : public ofBaseApp{
 		BattleState *battleState;
 		WinState *winState;
 		EndGameState *endGameState;
-		Player *player;
+		PauseState *pauseState;
+		Player *player;	
 };
