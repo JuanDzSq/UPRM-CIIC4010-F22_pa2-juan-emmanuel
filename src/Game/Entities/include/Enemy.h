@@ -3,7 +3,7 @@
 #include "Animation.h"
 #include "Entity.h"
 
-class Enemy : public Entity
+class Enemy : public Entity, public Fighting
 {
 private:
     Direction direction;

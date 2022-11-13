@@ -15,20 +15,20 @@ enum Direction
 class Entity
 {
 protected:
-    int health;
-    int baseDamage;
-    int fx, fy, fw, fh; // Fighting coordinates and dimensions
+    // int health;
+    // int baseDamage;
+    // int fx, fy, fw, fh; // Fighting coordinates and dimensions
     int ox, oy, ow, oh; // Overworld Coordinates and dimensions
-    ofImage fightingSprite;
+    // ofImage fightingSprite;
     ofImage overworldSprite;
 
 public:
-    Entity(int ox, int oy, int ow, int oh, int fx, int fy, int fw, int fh, int health, int baseDamage);
+    Entity(int ox, int oy, int ow, int oh);
     virtual ~Entity();
     virtual void inOverworldUpdate() = 0;
-    virtual void fightingUpdate() = 0;
+    // virtual void fightingUpdate() = 0;
     virtual void inOverworldDraw();
-    virtual void fightingDraw();
+    // virtual void fightingDraw();
     int getOX() { return ox; };
     int getOY() { return oy; };
     int getOW() { return ow; };
@@ -38,6 +38,27 @@ public:
     bool collides(Entity *entity);
     void setOX(int ox) { this->ox = ox; };
     void setOY(int oy) { this->oy = oy; };
+    // int getHealth() { return health; };
+    // void setHealth(int health) { this->health = health; };
+    // int getDmg() { return baseDamage; };
+    // void setDmg(int baseDamage) { this->baseDamage = baseDamage; };
+};
+
+class Fighting
+{
+protected:
+    int health;
+    int baseDamage;
+    int fx, fy, fw, fh; // Fighting coordinates and dimensions
+    ofImage fightingSprite;
+
+public:
+    Fighting(int fx, int fy, int fw, int fh, int health, int baseDamage);
+    virtual ~Fighting();
+    virtual void fightingUpdate() = 0;
+    virtual void fightingDraw();
+    ofRectangle getBounds();
+    ofRectangle getBounds(int ox, int oy);
     int getHealth() { return health; };
     void setHealth(int health) { this->health = health; };
     int getDmg() { return baseDamage; };

@@ -1,6 +1,6 @@
 #include "Enemy.h"
 
-Enemy::Enemy(string id, int health, int baseDamage, string entityName, int ox, int oy) : Entity(ox, oy, 50, 64, 420, 220, 97, 125, health, baseDamage)
+Enemy::Enemy(string id, int health, int baseDamage, string entityName, int ox, int oy) : Entity(ox, oy, 50, 64), Fighting(420, 220, 97, 125, health, baseDamage)
 {
     this->id = id;
     this->entityName = entityName;

@@ -7,7 +7,9 @@
                 "${workspaceFolder}/../../../libs/**",
                 "${workspaceFolder}/../../../libs/openFrameworks/utils/*",
                 "C:\\msys64\\mingw32\\include\\**",
-                "C:\\msys64\\mingw32\\i686-w64-mingw32"
+                "C:\\msys64\\mingw32\\i686-w64-mingw32",
+                "${workspaceFolder}/src/Resources",
+                "${workspaceFolder}/src/Game/Entities/include"
             ],
             "defines": [
                 "_DEBUG",

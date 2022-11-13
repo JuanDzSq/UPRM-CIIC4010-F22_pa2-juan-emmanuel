@@ -13,7 +13,7 @@
 #define OXDIMENSION 2688
 #define OYDIMENSION 2560
 
-class Player : public Entity
+class Player : public Entity, public Fighting
 {
 private:
     Direction direction = Direction::up;
