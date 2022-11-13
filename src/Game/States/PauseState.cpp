@@ -13,13 +13,13 @@ void PauseState::draw() {
 
 void PauseState::keyPressed(int key) {
     if(key == OF_KEY_ESC){
-        if(prevState == "OverWorld"){
-        setNextState("Overworld");
-        setFinished(true);
+        if(getPrevState().compare("Overworld") == 0){
+            setNextState("Overworld");
+            setFinished(true);
         }
-        else{
-        setNextState("Battle");
-        setFinished(true);
+        else if(getPrevState().compare("Battle") == 0){
+            setNextState("Battle");
+            setFinished(true);
         }
     }
     

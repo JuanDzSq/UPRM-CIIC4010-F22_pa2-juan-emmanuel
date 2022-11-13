@@ -9,6 +9,7 @@
 class PauseState : public State {
    private:
     ofImage screen;
+    string prevState;
 
    public:
     PauseState();
@@ -16,5 +17,6 @@ class PauseState : public State {
     void draw();
     void keyPressed(int key);
     void reset();
-    string prevState;
+    string getPrevState(){return prevState;}
+    void setPrevState(string prevState){this->prevState = prevState;}
 };
