@@ -126,6 +126,7 @@ void ofApp::update()
                 {
                     endGameState->setWin(true);
                     currentState = endGameState;
+                    player->reset();                //Reset health when game is finished
                 }
                 else
                 {
@@ -140,11 +141,11 @@ void ofApp::update()
                 currentState = winState;
             }
         }
-        else if (currentState->getNextState() == "End")
-        {
-            currentState = endGameState;
-            player->reset();
-        }
+        // else if (currentState->getNextState() == "End")          //This state is not in use
+        // {
+        //     currentState = endGameState;
+        //     player->reset();
+        // }
         else if(currentState->getNextState() == "PauseState")            //PauseState
         {
             currentState = pauseState;
