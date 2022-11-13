@@ -34,7 +34,7 @@ public:
     // void revive() { this->dead = false; };
     void setRenderX(int x) { renderX = x; };
     void setRenderY(int y) { renderY = y; };
-    // void inOverworldUpdate();
+    void inOverworldUpdate();
     void fightingUpdate();
     void inOverworldDraw();
     void reset();

@@ -40,8 +40,8 @@ Immovable::Immovable(string id, string entityName, int ox, int oy) : Entity(ox, 
     // direction = Direction::down;
 }
 
-// void Immovable::inOverworldUpdate()
-// {
+void Immovable::inOverworldUpdate()
+{
     // if (moveTimer == 60)
     // {
     //     walking = true;
@@ -160,7 +160,7 @@ Immovable::Immovable(string id, string entityName, int ox, int oy) : Entity(ox, 
     //         break;
     //     }
     // }
-// }
+}
 
 void Immovable::inOverworldDraw()
 {
