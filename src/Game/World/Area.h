@@ -3,6 +3,7 @@
 #include "Enemy.h"
 #include "OverworldCamera.h"
 #include "Player.h"
+#include "Immovable.h"
 
 class Area {
    private:

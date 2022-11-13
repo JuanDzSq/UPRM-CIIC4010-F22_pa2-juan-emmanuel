@@ -67,7 +67,7 @@ void ofApp::initAreas()
     enemies1.push_back(area1Enemy3);
 
     vector<Immovable *> immovables1;
-    Immovable *area1Immovable1 = new Immovable("11", 20, 4, "enemy1", 4 * 480, 4 * 432);
+    Immovable *area1Immovable1 = new Immovable("14", "enemy1", 4 * 480, 4 * 432);
     // Enemy *area1Enemy2 = new Enemy("12", 20, 4, "enemy1", 4 * 225, 4 * 178);
     // Enemy *area1Enemy3 = new Enemy("13", 20, 4, "enemy1", 4 * 420, 4 * 178);
     immovables1.push_back(area1Immovable1);
