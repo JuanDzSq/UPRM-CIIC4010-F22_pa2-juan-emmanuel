@@ -45,7 +45,12 @@ void ofApp::initAreas()
     enemies2.push_back(area2Enemy4);
     enemies2.push_back(area2Enemy5);
     enemies2.push_back(area2Enemy6);
-    area2 = new Area("Area2", NULL, "images/areas/area2.png", "audio/ice.wav", "images/stages/stage2.png", entrancePosition2, enemies2);
+
+    vector<Immovable *> immovables2;
+    Immovable *area2Immovable1 = new Immovable("37", "immovable2", 4 * 100, 4 * 100);
+    immovables2.push_back(area2Immovable1);
+
+    area2 = new Area("Area2", NULL, "images/areas/area2.png", "audio/ice.wav", "images/stages/stage2.png", entrancePosition2, enemies2, immovables2);
 
 //---------------Area 1_5--------------------------------------------------------------------------
     vector<Enemy *> enemies1_5;
@@ -54,7 +59,12 @@ void ofApp::initAreas()
     Enemy *area1_5Enemy2 = new Enemy("22", 20, 6, "enemy1_5", 4 * 225, 4 * 178);
     enemies1_5.push_back(area1_5Enemy1);
     enemies1_5.push_back(area1_5Enemy2);
-    area1_5 = new Area("Area1_5", area2, "images/areas/area1_5.png", "audio/SuperHero_original.ogg", "images/stages/stage1_5.png", entrancePosition1_5, enemies1_5);
+
+    vector<Immovable *> immovables1_5;
+    Immovable *area1_5Immovable1 = new Immovable("14", "immovable1_5", 4 * 100, 4 * 100);
+    immovables1_5.push_back(area1_5Immovable1);
+
+    area1_5 = new Area("Area1_5", area2, "images/areas/area1_5.png", "audio/SuperHero_original.ogg", "images/stages/stage1_5.png", entrancePosition1_5, enemies1_5, immovables1_5);
 
 //---------------Area 1----------------------------------------------------------------------------
     vector<Enemy *> enemies1;
@@ -67,15 +77,11 @@ void ofApp::initAreas()
     enemies1.push_back(area1Enemy3);
 
     vector<Immovable *> immovables1;
-    Immovable *area1Immovable1 = new Immovable("14", "enemy1", 4 * 480, 4 * 432);
-    // Enemy *area1Enemy2 = new Enemy("12", 20, 4, "enemy1", 4 * 225, 4 * 178);
-    // Enemy *area1Enemy3 = new Enemy("13", 20, 4, "enemy1", 4 * 420, 4 * 178);
+    Immovable *area1Immovable1 = new Immovable("14", "immovable1", 4 * 100, 4 * 100);
     immovables1.push_back(area1Immovable1);
-    // enemies1.push_back(area1Enemy2);
-    // enemies1.push_back(area1Enemy3);
 
 
-    area1 = new Area("Area1", area1_5, "images/areas/area1.png", "audio/forest.wav", "images/stages/stage1.png", entrancePosition1, enemies1);
+    area1 = new Area("Area1", area1_5, "images/areas/area1.png", "audio/forest.wav", "images/stages/stage1.png", entrancePosition1, enemies1, immovables1);
     currentArea = area1;
 }
 
