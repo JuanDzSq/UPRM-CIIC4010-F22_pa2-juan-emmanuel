@@ -1,9 +1,9 @@
 #pragma once
 
 #include "Animation.h"
-#include "Entity.h"
+#include "Fighting.h"
 
-class Enemy : public Entity, public Fighting
+class Enemy : public Fighting
 {
 private:
     Direction direction;

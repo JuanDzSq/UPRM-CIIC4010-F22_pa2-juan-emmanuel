@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Animation.h"
-#include "Entity.h"
+#include "Fighting.h"
 
 #define INIT_X 100
 #define INIT_Y 100
@@ -13,7 +13,7 @@
 #define OXDIMENSION 2688
 #define OYDIMENSION 2560
 
-class Player : public Entity, public Fighting
+class Player : public Fighting
 {
 private:
     Direction direction = Direction::up;
