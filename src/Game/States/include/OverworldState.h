@@ -2,6 +2,7 @@
 
 #include "Area.h"
 #include "Enemy.h"
+#include "Boss.h"
 #include "OverworldCamera.h"
 #include "Player.h"
 #include "State.h"

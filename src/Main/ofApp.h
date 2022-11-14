@@ -40,4 +40,5 @@ class ofApp : public ofBaseApp{
 		EndGameState *endGameState;
 		PauseState *pauseState;
 		Player *player;	
+		string bossCheck;
 };

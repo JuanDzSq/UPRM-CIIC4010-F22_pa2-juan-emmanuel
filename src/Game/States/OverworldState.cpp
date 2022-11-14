@@ -82,6 +82,11 @@ void OverworldState::keyPressed(int key) {
     if(key == 'r' || key == 'R'){
         getArea()->resetEnemies();
     }
+
+    //Spawn the boss of the area
+    if(key == 'b' || key == 'B'){
+        getArea()->spawnBosses();
+    }
 }
 
 void OverworldState::keyReleased(int key) {

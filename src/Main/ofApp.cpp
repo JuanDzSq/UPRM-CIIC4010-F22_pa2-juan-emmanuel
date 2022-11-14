@@ -33,18 +33,21 @@ void ofApp::initAreas()
 //--------------Area 2----------------------------------------------------------------------------
     vector<Enemy *> enemies2;
     ofPoint entrancePosition2(4 * 110, 4 * 116);
-    Enemy *area2Enemy1 = new Enemy("31", 30, 6, "enemy2", 4 * 120, 4 * 342);
-    Enemy *area2Enemy2 = new Enemy("32", 30, 6, "enemy2", 4 * 254, 4 * 130);
-    Enemy *area2Enemy3 = new Enemy("33", 30, 6, "enemy2", 4 * 542, 4 * 124);
-    Enemy *area2Enemy4 = new Enemy("34", 30, 6, "enemy2", 4 * 532, 4 * 368);
-    Enemy *area2Enemy5 = new Enemy("35", 30, 6, "enemy2", 4 * 266, 4 * 312);
-    Enemy *area2Enemy6 = new Enemy("36", 30, 6, "enemy2", 4 * 194, 4 * 532);
+    Enemy *area2Enemy1 = new Enemy("31", 30, 6, "enemy2", 4 * 120, 4 * 342, 50, 64);
+    Enemy *area2Enemy2 = new Enemy("32", 30, 6, "enemy2", 4 * 254, 4 * 130, 50, 64);
+    Enemy *area2Enemy3 = new Enemy("33", 30, 6, "enemy2", 4 * 542, 4 * 124, 50, 64);
+    Enemy *area2Enemy4 = new Enemy("34", 30, 6, "enemy2", 4 * 532, 4 * 368, 50, 64);
+    Enemy *area2Enemy5 = new Enemy("35", 30, 6, "enemy2", 4 * 266, 4 * 312, 50, 64);
+    Enemy *area2Enemy6 = new Enemy("36", 30, 6, "enemy2", 4 * 194, 4 * 532, 50, 64);
     enemies2.push_back(area2Enemy1);
     enemies2.push_back(area2Enemy2);
     enemies2.push_back(area2Enemy3);
     enemies2.push_back(area2Enemy4);
     enemies2.push_back(area2Enemy5);
     enemies2.push_back(area2Enemy6);
+
+    Boss *area2Boss = new Boss("B2", 40, 7, "boss2", 4 * 300, 4 * 300, 75, 96);
+    enemies2.push_back(area2Boss);
 
     vector<Immovable *> immovables2;
     Immovable *area2Immovable1 = new Immovable("37", "immovable2", 4 * 100, 4 * 100);
@@ -55,10 +58,13 @@ void ofApp::initAreas()
 //---------------Area 1_5--------------------------------------------------------------------------
     vector<Enemy *> enemies1_5;
     ofPoint entrancePosition1_5(4 * 85, 4 * 425);
-    Enemy *area1_5Enemy1 = new Enemy("21", 20, 6, "enemy1_5", 4 * 375, 4 * 410);
-    Enemy *area1_5Enemy2 = new Enemy("22", 20, 6, "enemy1_5", 4 * 225, 4 * 178);
+    Enemy *area1_5Enemy1 = new Enemy("21", 20, 6, "enemy1_5", 4 * 375, 4 * 410, 50, 64);
+    Enemy *area1_5Enemy2 = new Enemy("22", 20, 6, "enemy1_5", 4 * 225, 4 * 178, 50, 64);
     enemies1_5.push_back(area1_5Enemy1);
     enemies1_5.push_back(area1_5Enemy2);
+
+    Boss *area1_5Boss = new Boss("B1_5", 40, 7, "boss1_5", 4 * 300, 4 * 300, 75, 96);
+    enemies1_5.push_back(area1_5Boss);
 
     vector<Immovable *> immovables1_5;
     Immovable *area1_5Immovable1 = new Immovable("14", "immovable1_5", 4 * 100, 4 * 100);
@@ -69,12 +75,15 @@ void ofApp::initAreas()
 //---------------Area 1----------------------------------------------------------------------------
     vector<Enemy *> enemies1;
     ofPoint entrancePosition1(4 * 414, 4 * 566);
-    Enemy *area1Enemy1 = new Enemy("11", 20, 4, "enemy1", 4 * 480, 4 * 432);
-    Enemy *area1Enemy2 = new Enemy("12", 20, 4, "enemy1", 4 * 225, 4 * 178);
-    Enemy *area1Enemy3 = new Enemy("13", 20, 4, "enemy1", 4 * 420, 4 * 178);
+    Enemy *area1Enemy1 = new Enemy("11", 20, 4, "enemy1", 4 * 480, 4 * 432, 50, 64);
+    Enemy *area1Enemy2 = new Enemy("12", 20, 4, "enemy1", 4 * 225, 4 * 178, 50, 64);
+    Enemy *area1Enemy3 = new Enemy("13", 20, 4, "enemy1", 4 * 420, 4 * 178, 50, 64);
     enemies1.push_back(area1Enemy1);
     enemies1.push_back(area1Enemy2);
     enemies1.push_back(area1Enemy3);
+
+    Boss *area1Boss = new Boss("B1", 40, 7, "boss1", 4 * 300, 4 * 300, 75, 96);
+    enemies1.push_back(area1Boss);
 
     vector<Immovable *> immovables1;
     Immovable *area1Immovable1 = new Immovable("14", "immovable1", 4 * 100, 4 * 100);
@@ -119,8 +128,10 @@ void ofApp::update()
         }
         else if (currentState->getNextState() == "Win")
         {
+
             overworldState->getEnemy()->kill();
-            if (currentArea->getRemainingEnemies() == 0)
+            bossCheck = overworldState->getEnemy()->getId();
+            if (bossCheck.compare("B1") == 0 || bossCheck.compare("B1_5") == 0 || bossCheck.compare("B2") == 0)     //If boss killed go to next area
             {
                 if (currentArea->getNextArea() == NULL)
                 {
@@ -136,8 +147,11 @@ void ofApp::update()
                     currentState = winState;
                 }
             }
-            else
+            else                                    //If all enemies are dead, spawn boss
             {
+                if(currentArea->getRemainingEnemies() == 0){
+                    currentArea->getEnemies().at(currentArea->getEnemies().size() - 1)->revive();
+                }
                 currentState = winState;
             }
         }

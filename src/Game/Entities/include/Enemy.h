@@ -25,19 +25,19 @@ private:
     ofImage sprite;
 
 public:
-    Enemy(string id, int health, int baseDamage, string entityName, int ox, int oy);
+    Enemy(string id, int health, int baseDamage, string entityName, int ox, int oy, int ow, int oh);
     ~Enemy();
-    int getOX() { return ox; };
-    int getOY() { return oy; };
-    bool isDead() { return dead; };
-    void kill() { this->dead = true; };
-    void revive() { this->dead = false; };
-    void setRenderX(int x) { renderX = x; };
-    void setRenderY(int y) { renderY = y; };
-    void inOverworldUpdate();
-    void fightingUpdate();
-    void inOverworldDraw();
-    void reset();
-    string getId() { return id; };
-    ofImage getSprite() { return overworldSprite; };
+    virtual int getOX() { return ox; };
+    virtual int getOY() { return oy; };
+    virtual bool isDead() { return dead; };
+    virtual void kill() { this->dead = true; };
+    virtual void revive() { this->dead = false; };
+    virtual void setRenderX(int x) { renderX = x; };
+    virtual void setRenderY(int y) { renderY = y; };
+    virtual void inOverworldUpdate();
+    virtual void fightingUpdate();
+    virtual void inOverworldDraw();
+    virtual void reset();
+    virtual string getId() { return id; };
+    virtual ofImage getSprite() { return overworldSprite; };
 };
