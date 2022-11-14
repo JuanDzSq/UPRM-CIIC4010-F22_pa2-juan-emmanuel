@@ -100,8 +100,8 @@ void Player::fightingUpdate()
 void Player::inOverworldDraw()
 {
     // uncomment this to see the coordinates of your player
-    ofDrawBitmapString("ow:" + to_string(ox), 100, 60);
-    ofDrawBitmapString("oy:" + to_string(oy), 100, 80);
+    // ofDrawBitmapString("ow:" + to_string(ox), 100, 60);
+    // ofDrawBitmapString("oy:" + to_string(oy), 100, 80);
     overworldSprite.draw(CENTER_X, CENTER_Y, ow, oh);
 }
 

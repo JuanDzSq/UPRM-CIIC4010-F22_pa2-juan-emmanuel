@@ -13,6 +13,7 @@ class BattleState : public State {
         ofImage stage;
         Player *player;
         Enemy *enemy;
+        int bossFlag;
         Move choice = Move::none;
         Outcome outcome = Outcome::draw;
         int enemyChoice = 0;
