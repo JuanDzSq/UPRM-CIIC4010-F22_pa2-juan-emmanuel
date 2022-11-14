@@ -80,14 +80,14 @@ void OverworldState::draw()
         }
     }
 
-    for (unsigned int i = 0; i < area->getImmovables().size(); i++)
-    {
-        int playerDistanceX = area->getImmovables().at(i)->getOX() - camera->getPlayerX();
-        int playerDistanceY = area->getImmovables().at(i)->getOY() - camera->getPlayerY();
-        area->getImmovables().at(i)->setRenderX(camera->getDimensionX() / 2 + playerDistanceX);
-        area->getImmovables().at(i)->setRenderY(camera->getDimensionY() / 2 + playerDistanceY);
-        area->getEnemies().at(i)->inOverworldDraw();
-    }
+    // for (unsigned int i = 0; i < area->getImmovables().size(); i++)
+    // {
+    //     int playerDistanceX = area->getImmovables().at(i)->getOX() - camera->getPlayerX();
+    //     int playerDistanceY = area->getImmovables().at(i)->getOY() - camera->getPlayerY();
+    //     area->getImmovables().at(i)->setRenderX(camera->getDimensionX() / 2 + playerDistanceX);
+    //     area->getImmovables().at(i)->setRenderY(camera->getDimensionY() / 2 + playerDistanceY);
+    //     area->getEnemies().at(i)->inOverworldDraw();
+    // }
 
     // HUD Implementation
     ofSetColor(ofColor::purple);

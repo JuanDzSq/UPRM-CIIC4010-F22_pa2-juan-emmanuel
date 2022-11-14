@@ -46,19 +46,20 @@ void BattleState::update() {
             player->setHealth(currentPlayerHealth);
             return;
         } 
-        // else if ((enemy->getId().compare("B1") == 0 || enemy->getId().compare("B1_5") == 0 || enemy->getId().compare("B2") == 0)){
-        //     if((currentEnemyHealth <= 0) && (bossFlag == 0)){
-        //         currentEnemyHealth = 40;
-        //         bossFlag = 1;
-        //     }
-        //     else if ((currentEnemyHealth <= 0) && (bossFlag == 1)){
-        //         setNextState("Win");
-        //         setFinished(true);
-        //         player->setHealth(currentPlayerHealth);
-        //         bossFlag = 0;
-        //         return;
-        //     }
-        // }
+        else if ((enemy->getId().compare("B1") == 0 || enemy->getId().compare("B1_5") == 0 || enemy->getId().compare("B2") == 0)){
+            if((currentEnemyHealth <= 0) && (bossFlag == 0)){
+                currentEnemyHealth = 40;
+                bossFlag = 1;
+                drawHealthBar();
+            }
+            else if ((currentEnemyHealth <= 0) && (bossFlag == 1)){
+                setNextState("Win");
+                setFinished(true);
+                player->setHealth(currentPlayerHealth);
+                bossFlag = 0;
+                return;
+            }
+        }
         else if (currentEnemyHealth <= 0) {
             setNextState("Win");
             setFinished(true);
