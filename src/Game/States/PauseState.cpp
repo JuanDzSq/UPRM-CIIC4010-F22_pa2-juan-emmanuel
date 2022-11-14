@@ -1,7 +1,7 @@
 #include "PauseState.h"
 
 PauseState::PauseState() {
-    screen.load("images/ui/winscreen.png");
+    screen.load("images/ui/pause_screen.png");
 }
 
 void PauseState::update() {
