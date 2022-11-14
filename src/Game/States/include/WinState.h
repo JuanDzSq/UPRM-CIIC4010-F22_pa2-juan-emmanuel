@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Enemy.h"
+#include "Boss.h"
 #include "Player.h"
 #include "State.h"
 

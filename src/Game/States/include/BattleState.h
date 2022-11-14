@@ -3,6 +3,7 @@
 #include "State.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Boss.h"
 #include "Area.h"
 
 enum Move {rock, paper, scissors, none};

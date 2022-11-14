@@ -14,8 +14,13 @@ Area::Area(string name, Area *nextArea, string areaImagePath, string areaMusicPa
 
 void Area::resetEnemies()
 {
-    for (unsigned int i = 0; i < enemies.size(); i++)
+    for (unsigned int i = 0; i < enemies.size() - 1; i++)
         enemies.at(i)->revive();
+}
+
+void Area::spawnBosses()
+{
+    enemies.at(enemies.size() - 1)->revive();
 }
 
 int Area::getRemainingEnemies()

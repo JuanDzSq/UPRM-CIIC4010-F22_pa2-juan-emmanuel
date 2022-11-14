@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Enemy.h"
+#include "Boss.h"
 #include "OverworldCamera.h"
 #include "Player.h"
 #include "Immovable.h"
@@ -20,6 +21,7 @@ class Area {
    public:
     Area(string name, Area *nextArea, string areaImagePath, string areaMusicPath, string areaStagePath, ofPoint entrancePosition, vector<Enemy *> enemies, vector<Immovable *> immovables);
     void resetEnemies();
+    void spawnBosses();
     string getName() { return name; }
     ofImage getImage() { return areaImage; }
     ofSoundPlayer getMusic() { return areaMusic; }

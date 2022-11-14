@@ -1,9 +1,9 @@
 #pragma once
 
 #include "Animation.h"
-#include "Fighting.h"
+#include "Enemy.h"
 
-class Enemy : public Fighting
+class Boss : public Enemy
 {
 private:
     Direction direction;
@@ -20,13 +20,13 @@ private:
     Animation *fighting;
     string id;
     int moveTimer;
-    bool dead = false;
+    bool dead = true;
     string entityName;
     ofImage sprite;
 
 public:
-    Enemy(string id, int health, int baseDamage, string entityName, int ox, int oy, int ow, int oh);
-    ~Enemy();
+    Boss(string id, int health, int baseDamage, string entityName, int ox, int oy, int ow, int oh);
+    ~Boss();
     virtual int getOX() { return ox; };
     virtual int getOY() { return oy; };
     virtual bool isDead() { return dead; };
