@@ -26,6 +26,7 @@ void BattleState::startBattle(Enemy *enemy) {
     this->enemy = enemy;
     currentEnemyHealth = enemy->getHealth();
     currentPlayerHealth = player->getHealth();
+    bossFlag = 0;
 }
 
 void BattleState::update() {
@@ -48,9 +49,8 @@ void BattleState::update() {
         } 
         else if ((enemy->getId().compare("B1") == 0 || enemy->getId().compare("B1_5") == 0 || enemy->getId().compare("B2") == 0)){
             if((currentEnemyHealth <= 0) && (bossFlag == 0)){
-                currentEnemyHealth = 40;
+                currentEnemyHealth += 40;
                 bossFlag = 1;
-                drawHealthBar();
             }
             else if ((currentEnemyHealth <= 0) && (bossFlag == 1)){
                 setNextState("Win");
